@@ -9,7 +9,7 @@ create objects via mixing and provides a mechanism for sharing protected data
 up and down the inheritance tree. This allows you to create "classes" with the
 full range of encapsulation: public, protected, and private.
 
-With Harmony Proxies (implemented via Node-Proxy in Node.js currently), Gizmo adds dynamic prototype support similar
+With Harmony Proxies (use --harmony), Gizmo adds dynamic prototype support similar
 to SELF and io. You can create trees of prototypes to enable dynamic mixin capabilities.
 
 API
