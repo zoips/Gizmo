@@ -277,4 +277,39 @@ module.exports.prototypes = vows.describe("Prototypes")
                 assert.equal(protos.length, 0);
             }
         }
+    })
+    .addBatch({
+        "With a normal object": {
+            topic: function() {
+                return {
+                    stuff: "this is stuff"
+                };
+            },
+            
+            "it can be added to the prototypes list": function(on) {
+                var o = Prototypes.create({
+                    __id: 1,
+                    foo: "this is foo",
+                    bar: "this is bar"
+                });    
+                
+                assert.doesNotThrow(function() {
+                    o.prototypes.add(on);        
+                });
+                assert.equal(o.stuff, on.stuff);
+            },
+            
+            "it can be checked for existence in the prototypes list": function(on) {
+                var o = Prototypes.create({
+                    __id: 1,
+                    foo: "this is foo",
+                    bar: "this is bar"
+                });    
+                
+                assert.doesNotThrow(function() {
+                    o.prototypes.add(on);        
+                });
+                assert.ok(o.prototypes.has(on));                
+            }
+        }
     });
